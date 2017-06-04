@@ -1,0 +1,9 @@
+node_modules/
+dist/css/*
+dist/files/*
+dist/*.html
+dist/*.css
+
+*.ini
+*.psd
+*.txt
