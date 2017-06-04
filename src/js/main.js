@@ -6,9 +6,7 @@ var source= [ " Twenty-eight guineas." ,
 '  bowed. He would be willing of course, to keep it for her forever.',
 'Outside rain was falling, there was a cold, bitter taste in the air',
 'and the newly lighted lamps looked sad... At that very moment a'
-
 ]
-
 
 var tbody= document.getElementById('tbody')
 
@@ -33,7 +31,7 @@ var sortDown= function(){
 	} else { return 0 }
 	} )
 }
-
+frogLog:
 var tableRender= function(data){
 
 	tbody.innerHTML= ''
@@ -43,11 +41,13 @@ var tableRender= function(data){
 
 		var cell_Name= document.createElement('td')
 		cell_Name.innerText=item
-		row.appendChild( cell_Name )
+row.appendChild( cell_Name )
 
+if(item==undefined){
+cell_Name.innerText='-'
+}
 	}
 }
-
 
 tableRender(source)
 
@@ -62,3 +62,15 @@ document.getElementById('sort-up').addEventListener('click',
 		sortUp()
 		tableRender(source)
 	})
+
+  document.getElementById('addButton').addEventListener('click',
+function (event) {
+source.push(document.getElementById('addText').value)
+tableRender(source)
+})
+
+document.getElementById('addButtonTwo').addEventListener('click',
+function (event) {
+  delete source[document.getElementById('addTextTwo').value]
+  tableRender(source)
+})

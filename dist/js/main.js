@@ -41,8 +41,7 @@
 				}
 			});
 		};
-
-		var tableRender = function tableRender(data) {
+		frogLog: var tableRender = function tableRender(data) {
 
 			tbody.innerHTML = '';
 			var _iteratorNormalCompletion = true;
@@ -59,6 +58,10 @@
 					var cell_Name = document.createElement('td');
 					cell_Name.innerText = item;
 					row.appendChild(cell_Name);
+
+					if (item == undefined) {
+						cell_Name.innerText = '-';
+					}
 				}
 			} catch (err) {
 				_didIteratorError = true;
@@ -85,6 +88,16 @@
 
 		document.getElementById('sort-up').addEventListener('click', function (event) {
 			sortUp();
+			tableRender(source);
+		});
+
+		document.getElementById('addButton').addEventListener('click', function (event) {
+			source.push(document.getElementById('addText').value);
+			tableRender(source);
+		});
+
+		document.getElementById('addButtonTwo').addEventListener('click', function (event) {
+			delete source[document.getElementById('addTextTwo').value];
 			tableRender(source);
 		});
 	}, {}] }, {}, [1]);
